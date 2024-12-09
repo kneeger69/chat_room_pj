@@ -1,9 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+import 'home_page.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://prvtwjdlnifvopwnehcw.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBydnR3amRsbmlmdm9wd25laGN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIyMzcwMDcsImV4cCI6MjA0NzgxMzAwN30.c83XtcxWrCTh-DkXKi1c2xuPEMfEd6XKERHQn2Z5AP0'
+
+  );
   runApp(const MyApp());
 }
 
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyanAccent),
+        useMaterial3: true,
+      ),
+      home: const HomePage(),
+    );
+  }
+}
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -123,3 +150,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
